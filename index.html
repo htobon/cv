@@ -2,124 +2,309 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Hector Tobon | Curriculum Vitae</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    body { font-family: Arial, sans-serif; background: #f7f7f9; }
-    .cv-container { max-width: 800px; background: #fff; margin: 2em auto; border-radius: 10px; box-shadow: 0 8px 20px #eee; padding: 2em;}
-    .profile-pic { width: 150px; border-radius: 80px; border: 2px solid #234c5e; display:block; margin-bottom:20px;}
-    h1, h2 { color: #234c5e;}
-    .details { color: #444;}
-    .section { margin-bottom:1.8em;}
-    ul { margin:0.9em 0 0 1em;}
+    :root{
+      --brand:#143a52;         /* deep corporate blue */
+      --brand-2:#234c5e;       /* secondary blue */
+      --text:#1f2937;
+      --muted:#6b7280;
+      --line:#e5e7eb;
+      --bg:#f7f7f9;
+      --card:#ffffff;
+      --chip:#eef2f7;
+    }
+    *{box-sizing:border-box;}
+    html,body{margin:0;padding:0;}
+    body{
+      font-family: 'Poppins', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Layout */
+    .cv{
+      max-width: 1024px;
+      margin: 40px auto;
+      background: var(--card);
+      box-shadow: 0 20px 50px rgba(20,58,82,0.08);
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+    }
+    .topbar{
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 32px;
+      padding: 28px 28px 16px 28px;
+      background: linear-gradient(135deg, var(--brand) 0%, var(--brand-2) 100%);
+      color: #fff;
+    }
+    .avatar-wrap{
+      align-self: start;
+      text-align: center;
+    }
+    .avatar{
+      width: 160px; height:160px; border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid rgba(255,255,255,0.85);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+      background:#fff;
+    }
+    .intro{
+      align-self: center;
+    }
+    .name{
+      margin: 0 0 6px 0;
+      font-size: 34px;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+    }
+    .title{
+      margin: 0;
+      font-size: 16px;
+      font-weight: 400;
+      opacity: 0.95;
+    }
+    .contact{
+      margin-top: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px 22px;
+      font-size: 14px;
+    }
+    .contact a{ color:#fff; text-decoration: underline; text-decoration-color: rgba(255,255,255,0.5); }
+    .contact .item{
+      display:flex; align-items:center; gap:8px;
+      opacity:0.95;
+    }
+    .contact svg{ width:16px; height:16px; fill:#fff; opacity:0.9; }
+
+    .content{
+      display:grid;
+      grid-template-columns: 320px 1fr;
+      gap: 24px;
+      padding: 24px;
+    }
+
+    /* Left column cards */
+    .card{
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 18px 18px;
+    }
+    .card h3{
+      margin: 0 0 10px 0;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--brand-2);
+    }
+    .summary p{ margin: 0; color: var(--text); }
+
+    .chips{ display:flex; flex-wrap: wrap; gap:10px; margin-top: 6px;}
+    .chip{
+      background: var(--chip);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 6px 12px;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    /* Right column sections */
+    .section{
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 18px 20px;
+      margin-bottom: 18px;
+    }
+    .section h2{
+      margin: 0 0 2px 0;
+      font-size: 18px;
+      color: var(--brand-2);
+      letter-spacing: .3px;
+    }
+    .divider{
+      height: 1px; background: var(--line); margin: 10px 0 14px 0;
+    }
+
+    /* Timeline list */
+    .timeline{ list-style:none; margin: 0; padding:0; }
+    .timeline > li{
+      position: relative;
+      padding: 8px 0 8px 26px;
+      border-left: 2px solid var(--line);
+      margin-left: 6px;
+    }
+    .timeline > li::before{
+      content:"";
+      position:absolute; left:-6px; top:14px;
+      width:10px; height:10px; background: var(--brand-2);
+      border-radius: 50%; box-shadow:0 0 0 3px #fff;
+    }
+    .role{ font-weight:600; }
+    .org{ font-weight:600; color: var(--brand-2); }
+    .period{ color: var(--muted); font-size: 13px; }
+    .duties{ margin: 6px 0 0 0; padding-left: 16px; }
+    .duties li{ margin: 4px 0; }
+
+    /* Lists */
+    ul.inline{ margin:6px 0 0 0; padding:0; list-style:none; display:flex; flex-wrap:wrap; gap:10px; }
+    ul.inline li{ background: var(--chip); border:1px solid var(--line); border-radius:8px; padding:6px 10px; font-size:12px; }
+
+    /* Typography tweaks */
+    a{ color:var(--brand-2); text-decoration: none; }
+    a:hover{ text-decoration: underline; }
+
+    /* Print styles */
+    @page { size: A4; margin: 18mm; }
+    @media print{
+      body{ background:#fff; }
+      .cv{ box-shadow:none; border:none; }
+      .topbar{ border-radius:0; }
+      .content{ grid-template-columns: 1fr 2fr; padding:0; gap:16px; }
+      .section, .card{ page-break-inside: avoid; }
+      .chips .chip, ul.inline li{ border-color:#ddd; }
+    }
+
+    /* Responsive */
+    @media (max-width: 860px){
+      .topbar{ grid-template-columns: 1fr; text-align:center; }
+      .content{ grid-template-columns: 1fr; }
+      .avatar{ width:130px; height:130px; }
+      .name{ font-size: 28px; }
+    }
   </style>
 </head>
 <body>
-  <div class="cv-container">
-    <!-- Add your profile photo URL here -->
-    <img class="profile-pic" src="PROFILE_PHOTO_URL" alt="Hector Tobon Profile Photo">
-    <h1>Hector Tobon</h1>
-    <p class="details">
-      Technology Integration & Innovation Business Development Manager<br>
-      Alliance of Bioversity International and CIAT<br>
-      Location: Cali, Colombia<br>
-      Email: <a href="mailto:h.f.tobon@cgiar.org">h.f.tobon@cgiar.org</a><br>
-      LinkedIn: <a href="https://www.linkedin.com/in/hector-tobon-2576851b" target="_blank">hector-tobon-2576851b</a>
-    </p>
-    
-    <div class="section">
-      <h2>Professional Summary</h2>
-      <p>
-        Systems engineer and business technology leader with over 15 years of experience managing digital transformation, technology integration, and data-driven solutions for international agricultural research. Currently, Innovation & Business Development Manager at Alliance of Bioversity and CIAT, supervising teams and leading projects on knowledge sharing, open data, monitoring, and evaluation within the CGIAR network. Proven expertise in project management, agile methodologies, digital product leadership, and technical operations, with a strong focus on creating interoperable tools and platforms for scientific innovation and impact.
-      </p>
-    </div>
-    
-    <div class="section">
-      <h2>Work Experience</h2>
-      <ul>
-        <li>
-          <b>Alliance of Bioversity International and CIAT</b><br>
-          IT Manager, Technology Integration Unit, Innovation & Business Development (Nov 2020 – Present)
-          <ul>
-            <li>Leading a self-funded technical integration unit delivering solutions across CGIAR, supporting the Alliance with expertise in digital innovation.</li>
-            <li>Providing IT management for digital platforms, process improvement, and systems development in research environments.</li>
+  <main class="cv" role="document" aria-label="Curriculum Vitae">
+    <header class="topbar">
+      <div class="avatar-wrap">
+        <img class="avatar" src="https://cdn.theorg.com/6f77b9fb-3c39-446e-897a-0e1dcc0f1d92_medium.jpg" alt="Profile photo of Hector Tobon">
+      </div>
+      <div class="intro">
+        <h1 class="name">Hector Tobon</h1>
+        <p class="title">Technology Integration &amp; Innovation Business Development Manager</p>
+        <div class="contact" aria-label="Contact Information">
+          <div class="item">
+            <!-- location icon -->
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.686 2 6 4.686 6 8c0 5.25 6 14 6 14s6-8.75 6-14c0-3.314-2.686-6-6-6zm0 8.5A2.5 2.5 0 1 1 12 5a2.5 2.5 0 0 1 0 5.5z"/></svg>
+            Cali, Colombia
+          </div>
+          <div class="item">
+            <!-- email icon -->
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5L4 8V6l8 5 8-5v2z"/></svg>
+            <a href="mailto:h.f.tobon@cgiar.org">h.f.tobon@cgiar.org</a>
+          </div>
+          <div class="item">
+            <!-- linkedin icon -->
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.94 6.5A2.44 2.44 0 1 1 4.5 4.06 2.44 2.44 0 0 1 6.94 6.5zM4.75 8.75h4.38V20H4.75zM13.25 8.75h4.2v1.54h.06c.58-1.1 1.98-2.27 4.09-2.27 4.38 0 5.19 2.88 5.19 6.62V20H22.6v-5.09c0-1.22-.02-2.8-1.71-2.8-1.71 0-1.97 1.33-1.97 2.71V20h-4.38z"/></svg>
+            <a href="https://www.linkedin.com/in/hector-tobon-2576851b" target="_blank" rel="noopener">hector-tobon-2576851b</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="content">
+      <!-- Left Column -->
+      <aside>
+        <div class="card summary">
+          <h3>Professional Summary</h3>
+          <p>Systems engineer and business technology leader with over 15 years of experience managing digital transformation, technology integration, and data-driven solutions for international agricultural research. Leading Innovation &amp; Business Development at the Alliance of Bioversity and CIAT, focusing on knowledge sharing, open data, monitoring, and evaluation within CGIAR. Proven expertise in product management, agile delivery, and interoperable platforms that enable scientific innovation and impact.</p>
+        </div>
+
+        <div class="card">
+          <h3>Skills</h3>
+          <div class="chips">
+            <span class="chip">Product Management</span>
+            <span class="chip">Product Innovation</span>
+            <span class="chip">IT Management</span>
+            <span class="chip">Agile Methodologies</span>
+            <span class="chip">Project Management</span>
+            <span class="chip">Team Leadership</span>
+            <span class="chip">Digital Transformation</span>
+            <span class="chip">Information Systems</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Languages</h3>
+          <ul class="inline">
+            <li>English — Professional working</li>
+            <li>Spanish — Native or bilingual</li>
           </ul>
-        </li>
-        <li>
-          <b>CGIAR Research Program on Climate Change, Agriculture and Food Security (CCAFS)</b><br>
-          Knowledge and Data Sharing Coordinator (Apr 2020 – Present)<br>
-          Technical Manager, Knowledge and Data Sharing (May 2013 – Apr 2020)
-          <ul>
-            <li>Strategic advising and compliance with open access/data management policies; mentoring research teams on high-quality, reusable data systems.</li>
-            <li>Led technical development of the MARLO platform and supervised CCAFS Data Portal operations.</li>
+        </div>
+      </aside>
+
+      <!-- Right Column -->
+      <section>
+        <div class="section">
+          <h2>Work Experience</h2>
+          <div class="divider"></div>
+          <ul class="timeline">
+            <li>
+              <div class="org">Alliance of Bioversity International and CIAT</div>
+              <div class="role">IT Manager, Technology Integration Unit, Innovation &amp; Business Development</div>
+              <div class="period">Nov 2020 – Present</div>
+              <ul class="duties">
+                <li>Lead a self-funded technical integration unit delivering solutions across CGIAR.</li>
+                <li>Provide IT management for digital platforms, process improvement, and systems development in research environments.</li>
+              </ul>
+            </li>
+            <li>
+              <div class="org">CGIAR Research Program on Climate Change, Agriculture and Food Security (CCAFS)</div>
+              <div class="role">Knowledge and Data Sharing Coordinator</div>
+              <div class="period">Apr 2020 – Present</div>
+              <div class="role">Technical Manager, Knowledge and Data Sharing</div>
+              <div class="period">May 2013 – Apr 2020</div>
+              <ul class="duties">
+                <li>Strategic advising and compliance with open access and data management policies.</li>
+                <li>Led technical development of the MARLO platform and supervised CCAFS Data Portal operations.</li>
+              </ul>
+            </li>
+            <li>
+              <div class="org">International Center for Tropical Agriculture (CIAT)</div>
+              <div class="role">Technical Coordinator</div>
+              <div class="period">May 2013 – Nov 2020</div>
+              <div class="role">Systems Analyst</div>
+              <div class="period">Feb 2009 – May 2013</div>
+            </li>
           </ul>
-        </li>
-        <li>
-          <b>International Center for Tropical Agriculture (CIAT)</b><br>
-          Technical Coordinator (May 2013 – Nov 2020)<br>
-          Systems Analyst (Feb 2009 – May 2013)
-        </li>
-      </ul>
-    </div>
-    
-    <div class="section">
-      <h2>Education</h2>
-      <ul>
-        <li>
-          <b>University of Virginia Darden School of Business</b> &mdash; Certificate in Digital Product Management: Modern Fundamentals (May–June 2025)
-        </li>
-        <li>
-          <b>Info-Tech Research Group</b> &mdash; IT Product Vision Workshop (Mar 2023)
-        </li>
-        <li>
-          <b>Master’s in ICT Management</b> (University mentioned in original Spanish CV, if available)
-        </li>
-        <li>
-          <b>Systems Engineer</b> (Institution not publicly specified)
-        </li>
-      </ul>
-    </div>
-    
-    <div class="section">
-      <h2>Skills</h2>
-      <ul>
-        <li>Product Management</li>
-        <li>Product Innovation</li>
-        <li>IT Management</li>
-        <li>Agile Methodologies</li>
-        <li>Project Management</li>
-        <li>Team Leadership</li>
-        <li>Digital Transformation</li>
-        <li>Information Systems Development</li>
-      </ul>
-    </div>
-    
-    <div class="section">
-      <h2>Projects & Publications</h2>
-      <ul>
-        <li>
-          <b>CGIAR Level Agricultural Results Interoperable System Architecture (CLARISA)</b><br>
-          Enables management information systems interoperability across CGIAR.
-        </li>
-        <li>
-          <b>CGIAR Results Dashboard</b><br>
-          Tracks, synthesizes, and displays key metrics and outcomes for research programs.
-        </li>
-        <li>
-          <b>Foresight Monitoring Tool Brief</b> (Dec 2023)
-        </li>
-        <li>
-          <b>Introducing FAIR Scores in Global Agricultural Science Reporting Service</b> (Jun 2023)
-        </li>
-      </ul>
-    </div>
-    
-    <div class="section">
-      <h2>Languages</h2>
-      <ul>
-        <li>English (Professional working proficiency)</li>
-        <li>Spanish (Native or bilingual proficiency)</li>
-      </ul>
-    </div>
-  </div>
+        </div>
+
+        <div class="section">
+          <h2>Education</h2>
+          <div class="divider"></div>
+          <ul>
+            <li><strong>University of Virginia Darden School of Business</strong> — Certificate in Digital Product Management: Modern Fundamentals (May–June 2025)</li>
+            <li><strong>Info-Tech Research Group</strong> — IT Product Vision Workshop (Mar 2023)</li>
+            <li><strong>Master’s in ICT Management</strong> — University TBD (per original Spanish CV)</li>
+            <li><strong>Systems Engineer</strong> — Institution not publicly specified</li>
+          </ul>
+        </div>
+
+        <div class="section">
+          <h2>Projects &amp; Publications</h2>
+          <div class="divider"></div>
+          <ul>
+            <li><strong>CGIAR Level Agricultural Results Interoperable System Architecture (CLARISA)</strong> — Enables management information systems interoperability across CGIAR.</li>
+            <li><strong>CGIAR Results Dashboard</strong> — Tracks, synthesizes, and displays key metrics and outcomes for research programs.</li>
+            <li><strong>Foresight Monitoring Tool Brief</strong> (Dec 2023)</li>
+            <li><strong>Introducing FAIR Scores in Global Agricultural Science Reporting Service</strong> (Jun 2023)</li>
+          </ul>
+        </div>
+      </section>
+    </section>
+  </main>
 </body>
 </html>
