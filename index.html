@@ -80,11 +80,32 @@
     .edu-sub{font-size:13px;color:var(--muted);}
     .edu-desc{margin-top:6px;font-size:13.5px;line-height:1.5;}
     .edu-skills{margin-top:6px;font-size:13px;color:#374151;}
+    
+    /* Estilos para publicaciones (estilo original) */
     .pub-card{background:#f9fafc;border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin-bottom:12px;transition:all .2s ease;}
     .pub-card:hover{border-color:var(--brand-2);box-shadow:0 4px 10px rgba(35,76,94,0.1);}
     .pub-title{font-weight:700;color:var(--brand-2);font-size:15px;}
     .pub-meta{color:var(--muted);font-size:13px;margin-top:2px;margin-bottom:6px;}
     .pub-abstract{font-size:13.5px;color:#374151;margin-top:4px;line-height:1.5;}
+    
+    /* Estilos para proyectos (nuevo diseño elegante) */
+    .project-card{background:linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);border:1px solid #cbd5e1;border-radius:12px;padding:16px 18px;margin-bottom:14px;transition:all .3s ease;position:relative;overflow:hidden;}
+    .project-card::before{content:"";position:absolute;top:0;left:0;width:4px;height:100%;background:linear-gradient(135deg, var(--brand) 0%, var(--brand-2) 100%);}
+    .project-card:hover{border-color:var(--brand-2);box-shadow:0 6px 20px rgba(35,76,94,0.15);transform:translateY(-2px);}
+    .project-title{font-weight:700;color:var(--brand-2);font-size:16px;margin-bottom:4px;}
+    .project-category{color:var(--brand);font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:8px;}
+    .project-description{font-size:14px;color:#374151;line-height:1.6;margin-top:6px;}
+    
+    /* Estilos para secciones desplegables */
+    .collapsible-section{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin-bottom:18px;}
+    .collapsible-header{display:flex;justify-content:space-between;align-items:center;cursor:pointer;user-select:none;transition:all 0.3s ease;}
+    .collapsible-header:hover{color:var(--brand-2);}
+    .collapsible-header h2{margin:0;font-size:18px;color:var(--brand-2);}
+    .collapsible-toggle{font-size:20px;color:var(--brand-2);transition:transform 0.3s ease;font-weight:300;}
+    .collapsible-toggle.expanded{transform:rotate(180deg);}
+    .collapsible-content{overflow:hidden;transition:all 0.4s ease;}
+    .collapsible-content.collapsed{max-height:0;opacity:0;margin-top:0;}
+    .collapsible-content.expanded{max-height:2000px;opacity:1;margin-top:14px;}
     
     /* Estilos para el botón de cambio de idioma */
     .language-toggle{
@@ -188,6 +209,11 @@
       .pub-card{
         padding: 12px 14px;
         margin-bottom: 10px;
+      }
+      
+      .project-card{
+        padding: 14px 16px;
+        margin-bottom: 12px;
       }
       
       .language-toggle{
@@ -352,113 +378,134 @@
       </ul>
     </div>
 
-    <div class="section">
-      <h2>Education</h2>
-      <div class="divider"></div>
+    <div class="collapsible-section">
+      <div class="collapsible-header" onclick="toggleSection('education')">
+        <h2>Education</h2>
+        <span class="collapsible-toggle expanded">▼</span>
+      </div>
+      <div class="collapsible-content expanded" id="education-content">
+        <div class="divider"></div>
 
-      <div class="edu-item">
-        <div class="edu-title">University of Virginia Darden School of Business</div>
-        <div class="edu-sub">Certificate in Digital Product Management: Modern Fundamentals · May 2025 – Jun 2025</div>
-        <div class="edu-desc">
-          <b>Modules:</b><br>
-          1. Achieving Focus and Winning<br>
-          2. Applying Product Management Methods<br>
-          3. Exploring New Product Ideas<br>
-          4. Amplifying Existing Products
+        <div class="edu-item">
+          <div class="edu-title">University of Virginia Darden School of Business</div>
+          <div class="edu-sub">Certificate in Digital Product Management: Modern Fundamentals · May 2025 – Jun 2025</div>
+          <div class="edu-desc">
+            <b>Modules:</b><br>
+            1. Achieving Focus and Winning<br>
+            2. Applying Product Management Methods<br>
+            3. Exploring New Product Ideas<br>
+            4. Amplifying Existing Products
+          </div>
+          <div class="edu-skills"><b>Skills:</b> Product Innovation · Product Management · Customer Insights · Data-driven Decision Making</div>
         </div>
-        <div class="edu-skills"><b>Skills:</b> Product Innovation · Product Management · Customer Insights · Data-driven Decision Making</div>
-      </div>
 
-      <div class="edu-item">
-        <div class="edu-title">Info-Tech Research Group</div>
-        <div class="edu-sub">Workshop: Deliver on your digital product vision (4-days remote) · Mar 2023</div>
-        <div class="edu-desc">
-          <b>Agenda:</b><br>
-          Day 1 – Define a Digital Product Vision<br>
-          Day 2 – Build a Better Backlog<br>
-          Day 3 – Build a Product Backlog<br>
-          Day 4 – Product Team Roles & Key Activities
+        <div class="edu-item">
+          <div class="edu-title">Info-Tech Research Group</div>
+          <div class="edu-sub">Workshop: Deliver on your digital product vision (4-days remote) · Mar 2023</div>
+          <div class="edu-desc">
+            <b>Agenda:</b><br>
+            Day 1 – Define a Digital Product Vision<br>
+            Day 2 – Build a Better Backlog<br>
+            Day 3 – Build a Product Backlog<br>
+            Day 4 – Product Team Roles & Key Activities
+          </div>
+          <div class="edu-skills"><b>Skills:</b> IT Management</div>
         </div>
-        <div class="edu-skills"><b>Skills:</b> IT Management</div>
-      </div>
 
-      <div class="edu-item">
-        <div class="edu-title">Cornell University</div>
-        <div class="edu-sub">Certificate in Business Administration and Management · 2018</div>
-        <div class="edu-desc">Provides professionals new to leadership roles with tools to become true leaders instead of simply managers. Emphasizes developing interpersonal skills, effective team management, and high-performance leadership.</div>
-        <div class="edu-skills"><b>Skills:</b> IT Management · Leadership Development</div>
-      </div>
+        <div class="edu-item">
+          <div class="edu-title">Cornell University</div>
+          <div class="edu-sub">Certificate in Business Administration and Management · 2018</div>
+          <div class="edu-desc">Provides professionals new to leadership roles with tools to become true leaders instead of simply managers. Emphasizes developing interpersonal skills, effective team management, and high-performance leadership.</div>
+          <div class="edu-skills"><b>Skills:</b> IT Management · Leadership Development</div>
+        </div>
 
-      <div class="edu-item">
-        <div class="edu-title">Universidad Icesi</div>
-        <div class="edu-sub">Maestría en Gestión de Informática y Telecomunicaciones · 2015 – 2016</div>
-        <div class="edu-skills"><b>Skills:</b> IT Management</div>
-      </div>
+        <div class="edu-item">
+          <div class="edu-title">Universidad Icesi</div>
+          <div class="edu-sub">Maestría en Gestión de Informática y Telecomunicaciones · 2015 – 2016</div>
+          <div class="edu-skills"><b>Skills:</b> IT Management</div>
+        </div>
 
-      <div class="edu-item">
-        <div class="edu-title">Universidad Icesi</div>
-        <div class="edu-sub">Ingeniero de Sistemas · 2003 – 2010</div>
-        <div class="edu-skills"><b>Skills:</b> Information Systems Engineering</div>
+        <div class="edu-item">
+          <div class="edu-title">Universidad Icesi</div>
+          <div class="edu-sub">Ingeniero de Sistemas · 2003 – 2010</div>
+          <div class="edu-skills"><b>Skills:</b> Information Systems Engineering</div>
+        </div>
       </div>
     </div>
 
-    <div class="section">
-      <h2>Projects</h2>
-      <div class="divider"></div>
-      
-      <div class="pub-card">
-        <div class="pub-title"><a href="https://reporting.cgiar.org" target="_blank"><b>PRMS – Performance Results Management System</b></a></div>
-        <div class="pub-meta">System Office Platform</div>
-        <div class="pub-abstract">A centralized platform that supports the management of CGIAR's pooled funding (Windows 1 and 2) for research initiatives. It enables the planning, monitoring, and reporting of program activities and outcomes, while ensuring quality assurance and consistency across the CGIAR portfolio. Through PRMS, data from multiple initiatives are harmonized to provide an integrated view of results, financial allocations, and contributions to CGIAR's global impact framework.</div>
+    <div class="collapsible-section">
+      <div class="collapsible-header" onclick="toggleSection('projects')">
+        <h2>Projects</h2>
+        <span class="collapsible-toggle expanded">▼</span>
       </div>
+      <div class="collapsible-content expanded" id="projects-content">
+        <div class="divider"></div>
+        
+        <div class="project-card">
+          <div class="project-title"><a href="https://reporting.cgiar.org" target="_blank"><b>PRMS – Performance Results Management System</b></a></div>
+          <div class="project-category">System Office Platform</div>
+          <div class="project-description">A centralized platform that supports the management of CGIAR's pooled funding (Windows 1 and 2) for research initiatives. It enables the planning, monitoring, and reporting of program activities and outcomes, while ensuring quality assurance and consistency across the CGIAR portfolio. Through PRMS, data from multiple initiatives are harmonized to provide an integrated view of results, financial allocations, and contributions to CGIAR's global impact framework.</div>
+        </div>
 
-      <div class="pub-card">
-        <div class="pub-title"><a href="https://star.cgiar.org" target="_blank"><b>STAR – Strategic Tracking, Analysis, and Reporting</b></a></div>
-        <div class="pub-meta">Results Management Tool</div>
-        <div class="pub-abstract">A results management tool developed by the Alliance to track bilateral and science program outcomes. It connects project-level operations with CGIAR's global results, integrating OICRs, innovations, and knowledge products.</div>
-      </div>
+        <div class="project-card">
+          <div class="project-title"><a href="https://star.cgiar.org" target="_blank"><b>STAR – Strategic Tracking, Analysis, and Reporting</b></a></div>
+          <div class="project-category">Results Management Tool</div>
+          <div class="project-description">A results management tool developed by the Alliance to track bilateral and science program outcomes. It connects project-level operations with CGIAR's global results, integrating OICRs, innovations, and knowledge products.</div>
+        </div>
 
-      <div class="pub-card">
-        <div class="pub-title"><a href="https://clarisa.cgiar.org" target="_blank"><b>CLARISA – CGIAR Results and Indicators System for Analysis</b></a></div>
-        <div class="pub-meta">Central Reference System</div>
-        <div class="pub-abstract">Central reference system managing CGIAR control lists (centers, countries, regions, initiatives, indicators, etc.). It provides APIs that enable interoperability between platforms such as PRMS, STAR, and MARLO.</div>
-      </div>
+        <div class="project-card">
+          <div class="project-title"><a href="https://clarisa.cgiar.org" target="_blank"><b>CLARISA – CGIAR Results and Indicators System for Analysis</b></a></div>
+          <div class="project-category">Central Reference System</div>
+          <div class="project-description">Central reference system managing CGIAR control lists (centers, countries, regions, initiatives, indicators, etc.). It provides APIs that enable interoperability between platforms such as PRMS, STAR, and MARLO.</div>
+        </div>
 
-      <div class="pub-card">
-        <div class="pub-title"><a href="https://marlo.cgiar.org" target="_blank"><b>MARLO – Monitoring, Evaluation, and Learning Online</b></a></div>
-        <div class="pub-meta">Platform for Research Projects</div>
-        <div class="pub-abstract">Platform supporting research and development projects for planning, monitoring, and evaluation. Used in initiatives like AICCRA, it manages deliverables, indicators, and quality assurance processes.</div>
-      </div>
+        <div class="project-card">
+          <div class="project-title"><a href="https://marlo.cgiar.org" target="_blank"><b>MARLO – Monitoring, Evaluation, and Learning Online</b></a></div>
+          <div class="project-category">Platform for Research Projects</div>
+          <div class="project-description">Platform supporting research and development projects for planning, monitoring, and evaluation. Used in initiatives like AICCRA, it manages deliverables, indicators, and quality assurance processes.</div>
+        </div>
 
-      <div class="pub-card">
-        <div class="pub-title"><a href="https://www.cgiar.org/food-security-impact/results-dashboard/" target="_blank"><b>CGIAR Results Dashboard</b></a></div>
-        <div class="pub-meta">Interactive Dashboard</div>
-        <div class="pub-abstract">An interactive dashboard that consolidates CGIAR's research results and impact data into a single, visual interface. It allows users to explore progress across Initiatives and Impact Areas, highlighting innovations, policies, partnerships, and measurable outcomes aligned with the Sustainable Development Goals. Designed to improve transparency and communication, the dashboard transforms complex institutional reporting into accessible visual insights that demonstrate CGIAR's global contribution to food, land, and water systems.</div>
-      </div>
+        <div class="project-card">
+          <div class="project-title"><a href="https://www.cgiar.org/food-security-impact/results-dashboard/" target="_blank"><b>CGIAR Results Dashboard</b></a></div>
+          <div class="project-category">Interactive Dashboard</div>
+          <div class="project-description">An interactive dashboard that consolidates CGIAR's research results and impact data into a single, visual interface. It allows users to explore progress across Initiatives and Impact Areas, highlighting innovations, policies, partnerships, and measurable outcomes aligned with the Sustainable Development Goals. Designed to improve transparency and communication, the dashboard transforms complex institutional reporting into accessible visual insights that demonstrate CGIAR's global contribution to food, land, and water systems.</div>
+        </div>
 
-      <div class="pub-card">
-        <div class="pub-title"><a href="https://alliancebioversityciat.org/impact/results-dashboard" target="_blank"><b>Alliance Results Dashboard</b></a></div>
-        <div class="pub-meta">Public Dashboard</div>
-        <div class="pub-abstract">Public dashboard that consolidates institutional and project results from the Alliance. It provides interactive visualizations of indicators, publications, innovations, and policies through Power BI.</div>
-      </div>
+        <div class="project-card">
+          <div class="project-title"><a href="https://alliancebioversityciat.org/impact/results-dashboard" target="_blank"><b>Alliance Results Dashboard</b></a></div>
+          <div class="project-category">Public Dashboard</div>
+          <div class="project-description">Public dashboard that consolidates institutional and project results from the Alliance. It provides interactive visualizations of indicators, publications, innovations, and policies through Power BI.</div>
+        </div>
 
-      <div class="pub-card">
-        <div class="pub-title"><a href="https://marlo.aiccra.cgiar.org" target="_blank"><b>Managing Agricultural Research for Learning and Outputs (MARLO – AICCRA Instance)</b></a></div>
-        <div class="pub-meta">Dedicated MARLO Instance</div>
-        <div class="pub-abstract">Dedicated MARLO instance customized for the AICCRA project. It integrates modules for tracking deliverables, evidence of impact, and monitoring reports, strengthening data management and institutional learning.</div>
+        <div class="project-card">
+          <div class="project-title"><a href="https://qa.cgiar.org" target="_blank"><b>Quality Assessment Platform (QA)</b></a></div>
+          <div class="project-category">Quality Assurance Platform</div>
+          <div class="project-description">Platform supporting the quality assurance process for results reported in PRMS. It manages technical reviews, evaluations, and workflows led by CGIAR System Office assessors.</div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-title"><a href="https://marlo.aiccra.cgiar.org" target="_blank"><b>Managing Agricultural Research for Learning and Outputs (MARLO – AICCRA Instance)</b></a></div>
+          <div class="project-category">Dedicated MARLO Instance</div>
+          <div class="project-description">Dedicated MARLO instance customized for the AICCRA project. It integrates modules for tracking deliverables, evidence of impact, and monitoring reports, strengthening data management and institutional learning.</div>
+        </div>
       </div>
     </div>
 
-    <div class="section">
-      <h2>Publications & Briefs</h2>
-      <div class="divider"></div>
-      <div class="pub-card"><div class="pub-title"><a href="https://hdl.handle.net/10568/135274" target="_blank"><b>Foresight Monitoring Tool Brief</b></a></div><div class="pub-meta">Bioversity International & CIAT · Dec 12, 2023</div><div class="pub-abstract">Presents the 2023 updates and innovations of the Foresight Monitoring Tool, showcasing its use for scenario-based monitoring and decision support across agricultural foresight contexts.</div></div>
-      <div class="pub-card"><div class="pub-title"><a href="https://hdl.handle.net/20.500.11766/68494" target="_blank"><b>Introducing FAIR Scores in a Global Agricultural Science Reporting Service</b></a></div><div class="pub-meta">ICARDA · Jun 15, 2023</div><div class="pub-abstract">Analyzes FAIR score adoption across One CGIAR’s reporting service; iterative updates improved openness, interoperability, and reusability of scientific outputs.</div></div>
-      <div class="pub-card"><div class="pub-title"><a href="https://cgspace.cgiar.org/handle/10568/119221" target="_blank"><b>Exploring CGIAR Level Agricultural Results Interoperable System Architecture (CLARISA)</b></a></div><div class="pub-meta">CCAFS · Mar 31, 2022</div><div class="pub-abstract">Introduces CLARISA as a centralized architecture enabling interoperability of agricultural results data, linking systems like MARLO, MEL, and institutional MIS for consistent CGIAR reporting.</div></div>
-      <div class="pub-card"><div class="pub-title"><a href="https://hdl.handle.net/20.500.11766/66480" target="_blank"><b>Case Study: Monitoring-Quality Assurance Processor-API</b></a></div><div class="pub-meta">ICARDA · Nov 26, 2021</div><div class="pub-abstract">Details the development of an API (M-QAP) supporting CGIAR’s peer-reviewed publication quality assurance process through automation of metadata validation.</div></div>
-      <div class="pub-card"><div class="pub-title"><a href="http://hdl.handle.net/10568/69497" target="_blank"><b>Building an Online Platform for Outcome-Focused Results-Based Program Management</b></a></div><div class="pub-meta">CCAFS · Jan 8, 2016</div><div class="pub-abstract">Describes an online results management platform that supports outcome measurement and data tracking for CGIAR programs.</div></div>
-      <div class="pub-card"><div class="pub-title"><a href="http://www.oas.org/dsd/IABIN/Component3/CIAT/Informe%20de%20Avance.pdf" target="_blank"><b>Improving Biodiversity Data for Threat Assessment and Conservation in South America</b></a></div><div class="pub-meta">CIAT / IABIN · Jan 1, 2010</div><div class="pub-abstract">Report on improving biodiversity data standards and data integration methodologies for conservation planning in South America.</div></div>
-      <div class="pub-card"><div class="pub-title"><a href="http://www.gbif.org/system/files_force/gbif_resource/resource-80721/SS7Programme_lowres.pdf?download=1" target="_blank"><b>Impacts of Climate Change on Global Plant Biodiversity</b></a></div><div class="pub-meta">7th GBIF Science Symposium · Oct 7, 2009</div><div class="pub-abstract">Examines how current protected area systems may fare against projected 2050 distributions of plant diversity under climate change scenarios.</div></div>
+    <div class="collapsible-section">
+      <div class="collapsible-header" onclick="toggleSection('publications')">
+        <h2>Publications & Briefs</h2>
+        <span class="collapsible-toggle expanded">▼</span>
+      </div>
+      <div class="collapsible-content expanded" id="publications-content">
+        <div class="divider"></div>
+        <div class="pub-card"><div class="pub-title"><a href="https://hdl.handle.net/10568/135274" target="_blank"><b>Foresight Monitoring Tool Brief</b></a></div><div class="pub-meta">Bioversity International & CIAT · Dec 12, 2023</div><div class="pub-abstract">Presents the 2023 updates and innovations of the Foresight Monitoring Tool, showcasing its use for scenario-based monitoring and decision support across agricultural foresight contexts.</div></div>
+        <div class="pub-card"><div class="pub-title"><a href="https://hdl.handle.net/20.500.11766/68494" target="_blank"><b>Introducing FAIR Scores in a Global Agricultural Science Reporting Service</b></a></div><div class="pub-meta">ICARDA · Jun 15, 2023</div><div class="pub-abstract">Analyzes FAIR score adoption across One CGIAR's reporting service; iterative updates improved openness, interoperability, and reusability of scientific outputs.</div></div>
+        <div class="pub-card"><div class="pub-title"><a href="https://cgspace.cgiar.org/handle/10568/119221" target="_blank"><b>Exploring CGIAR Level Agricultural Results Interoperable System Architecture (CLARISA)</b></a></div><div class="pub-meta">CCAFS · Mar 31, 2022</div><div class="pub-abstract">Introduces CLARISA as a centralized architecture enabling interoperability of agricultural results data, linking systems like MARLO, MEL, and institutional MIS for consistent CGIAR reporting.</div></div>
+        <div class="pub-card"><div class="pub-title"><a href="https://hdl.handle.net/20.500.11766/66480" target="_blank"><b>Case Study: Monitoring-Quality Assurance Processor-API</b></a></div><div class="pub-meta">ICARDA · Nov 26, 2021</div><div class="pub-abstract">Details the development of an API (M-QAP) supporting CGIAR's peer-reviewed publication quality assurance process through automation of metadata validation.</div></div>
+        <div class="pub-card"><div class="pub-title"><a href="http://hdl.handle.net/10568/69497" target="_blank"><b>Building an Online Platform for Outcome-Focused Results-Based Program Management</b></a></div><div class="pub-meta">CCAFS · Jan 8, 2016</div><div class="pub-abstract">Describes an online results management platform that supports outcome measurement and data tracking for CGIAR programs.</div></div>
+        <div class="pub-card"><div class="pub-title"><a href="http://www.oas.org/dsd/IABIN/Component3/CIAT/Informe%20de%20Avance.pdf" target="_blank"><b>Improving Biodiversity Data for Threat Assessment and Conservation in South America</b></a></div><div class="pub-meta">CIAT / IABIN · Jan 1, 2010</div><div class="pub-abstract">Report on improving biodiversity data standards and data integration methodologies for conservation planning in South America.</div></div>
+        <div class="pub-card"><div class="pub-title"><a href="http://www.gbif.org/system/files_force/gbif_resource/resource-80721/SS7Programme_lowres.pdf?download=1" target="_blank"><b>Impacts of Climate Change on Global Plant Biodiversity</b></a></div><div class="pub-meta">7th GBIF Science Symposium · Oct 7, 2009</div><div class="pub-abstract">Examines how current protected area systems may fare against projected 2050 distributions of plant diversity under climate change scenarios.</div></div>
+      </div>
     </div>
   </section>
 </section>
@@ -524,113 +571,134 @@
       </ul>
     </div>
 
-    <div class="section">
-      <h2>Educación</h2>
-      <div class="divider"></div>
+    <div class="collapsible-section">
+      <div class="collapsible-header" onclick="toggleSection('educacion')">
+        <h2>Educación</h2>
+        <span class="collapsible-toggle expanded">▼</span>
+      </div>
+      <div class="collapsible-content expanded" id="educacion-content">
+        <div class="divider"></div>
 
-      <div class="edu-item">
-        <div class="edu-title">Escuela de Negocios Darden de la Universidad de Virginia</div>
-        <div class="edu-sub">Certificado en Gestión de Productos Digitales: Fundamentos Modernos · May 2025 – Jun 2025</div>
-        <div class="edu-desc">
-          <b>Módulos:</b><br>
-          1. Lograr Enfoque y Ganar<br>
-          2. Aplicar Métodos de Gestión de Productos<br>
-          3. Explorar Nuevas Ideas de Productos<br>
-          4. Amplificar Productos Existentes
+        <div class="edu-item">
+          <div class="edu-title">Escuela de Negocios Darden de la Universidad de Virginia</div>
+          <div class="edu-sub">Certificado en Gestión de Productos Digitales: Fundamentos Modernos · May 2025 – Jun 2025</div>
+          <div class="edu-desc">
+            <b>Módulos:</b><br>
+            1. Lograr Enfoque y Ganar<br>
+            2. Aplicar Métodos de Gestión de Productos<br>
+            3. Explorar Nuevas Ideas de Productos<br>
+            4. Amplificar Productos Existentes
+          </div>
+          <div class="edu-skills"><b>Habilidades:</b> Innovación de Productos · Gestión de Productos · Perspectivas del Cliente · Toma de Decisiones Basada en Datos</div>
         </div>
-        <div class="edu-skills"><b>Habilidades:</b> Innovación de Productos · Gestión de Productos · Perspectivas del Cliente · Toma de Decisiones Basada en Datos</div>
-      </div>
 
-      <div class="edu-item">
-        <div class="edu-title">Info-Tech Research Group</div>
-        <div class="edu-sub">Taller: Entregar tu visión de producto digital (4 días remoto) · Mar 2023</div>
-        <div class="edu-desc">
-          <b>Agenda:</b><br>
-          Día 1 – Definir una Visión de Producto Digital<br>
-          Día 2 – Construir un Mejor Backlog<br>
-          Día 3 – Construir un Backlog de Producto<br>
-          Día 4 – Roles del Equipo de Producto y Actividades Clave
+        <div class="edu-item">
+          <div class="edu-title">Info-Tech Research Group</div>
+          <div class="edu-sub">Taller: Entregar tu visión de producto digital (4 días remoto) · Mar 2023</div>
+          <div class="edu-desc">
+            <b>Agenda:</b><br>
+            Día 1 – Definir una Visión de Producto Digital<br>
+            Día 2 – Construir un Mejor Backlog<br>
+            Día 3 – Construir un Backlog de Producto<br>
+            Día 4 – Roles del Equipo de Producto y Actividades Clave
+          </div>
+          <div class="edu-skills"><b>Habilidades:</b> Gestión de TI</div>
         </div>
-        <div class="edu-skills"><b>Habilidades:</b> Gestión de TI</div>
-      </div>
 
-      <div class="edu-item">
-        <div class="edu-title">Universidad de Cornell</div>
-        <div class="edu-sub">Certificado en Administración y Gestión de Negocios · 2018</div>
-        <div class="edu-desc">Proporciona a profesionales nuevos en roles de liderazgo herramientas para convertirse en verdaderos líderes en lugar de simplemente gerentes. Enfatiza el desarrollo de habilidades interpersonales, gestión efectiva de equipos y liderazgo de alto rendimiento.</div>
-        <div class="edu-skills"><b>Habilidades:</b> Gestión de TI · Desarrollo de Liderazgo</div>
-      </div>
+        <div class="edu-item">
+          <div class="edu-title">Universidad de Cornell</div>
+          <div class="edu-sub">Certificado en Administración y Gestión de Negocios · 2018</div>
+          <div class="edu-desc">Proporciona a profesionales nuevos en roles de liderazgo herramientas para convertirse en verdaderos líderes en lugar de simplemente gerentes. Enfatiza el desarrollo de habilidades interpersonales, gestión efectiva de equipos y liderazgo de alto rendimiento.</div>
+          <div class="edu-skills"><b>Habilidades:</b> Gestión de TI · Desarrollo de Liderazgo</div>
+        </div>
 
-      <div class="edu-item">
-        <div class="edu-title">Universidad Icesi</div>
-        <div class="edu-sub">Maestría en Gestión de Informática y Telecomunicaciones · 2015 – 2016</div>
-        <div class="edu-skills"><b>Habilidades:</b> Gestión de TI</div>
-      </div>
+        <div class="edu-item">
+          <div class="edu-title">Universidad Icesi</div>
+          <div class="edu-sub">Maestría en Gestión de Informática y Telecomunicaciones · 2015 – 2016</div>
+          <div class="edu-skills"><b>Habilidades:</b> Gestión de TI</div>
+        </div>
 
-      <div class="edu-item">
-        <div class="edu-title">Universidad Icesi</div>
-        <div class="edu-sub">Ingeniero de Sistemas · 2003 – 2010</div>
-        <div class="edu-skills"><b>Habilidades:</b> Ingeniería de Sistemas de Información</div>
+        <div class="edu-item">
+          <div class="edu-title">Universidad Icesi</div>
+          <div class="edu-sub">Ingeniero de Sistemas · 2003 – 2010</div>
+          <div class="edu-skills"><b>Habilidades:</b> Ingeniería de Sistemas de Información</div>
+        </div>
       </div>
     </div>
 
-    <div class="section">
-      <h2>Proyectos</h2>
-      <div class="divider"></div>
-      
-      <div class="pub-card">
-        <div class="pub-title"><a href="https://reporting.cgiar.org" target="_blank"><b>PRMS – Sistema de Gestión de Resultados de Rendimiento</b></a></div>
-        <div class="pub-meta">Plataforma de la Oficina del Sistema</div>
-        <div class="pub-abstract">Una plataforma centralizada que apoya la gestión del financiamiento conjunto de CGIAR (Ventanas 1 y 2) para iniciativas de investigación. Permite la planificación, monitoreo y reporte de actividades y resultados de programas, mientras asegura aseguramiento de calidad y consistencia en todo el portafolio de CGIAR. A través de PRMS, los datos de múltiples iniciativas se armonizan para proporcionar una vista integrada de resultados, asignaciones financieras y contribuciones al marco de impacto global de CGIAR.</div>
+    <div class="collapsible-section">
+      <div class="collapsible-header" onclick="toggleSection('proyectos')">
+        <h2>Proyectos</h2>
+        <span class="collapsible-toggle expanded">▼</span>
       </div>
+      <div class="collapsible-content expanded" id="proyectos-content">
+        <div class="divider"></div>
+        
+        <div class="project-card">
+          <div class="project-title"><a href="https://reporting.cgiar.org" target="_blank"><b>PRMS – Sistema de Gestión de Resultados de Rendimiento</b></a></div>
+          <div class="project-category">Plataforma de la Oficina del Sistema</div>
+          <div class="project-description">Una plataforma centralizada que apoya la gestión del financiamiento conjunto de CGIAR (Ventanas 1 y 2) para iniciativas de investigación. Permite la planificación, monitoreo y reporte de actividades y resultados de programas, mientras asegura aseguramiento de calidad y consistencia en todo el portafolio de CGIAR. A través de PRMS, los datos de múltiples iniciativas se armonizan para proporcionar una vista integrada de resultados, asignaciones financieras y contribuciones al marco de impacto global de CGIAR.</div>
+        </div>
 
-      <div class="pub-card">
-        <div class="pub-title"><a href="https://star.cgiar.org" target="_blank"><b>STAR – Seguimiento, Análisis y Reporte Estratégico</b></a></div>
-        <div class="pub-meta">Herramienta de Gestión de Resultados</div>
-        <div class="pub-abstract">Herramienta de gestión de resultados desarrollada por la Alianza para rastrear resultados de programas bilaterales y científicos. Conecta operaciones a nivel de proyecto con los resultados globales de CGIAR, integrando OICRs, innovaciones y productos de conocimiento.</div>
-      </div>
+        <div class="project-card">
+          <div class="project-title"><a href="https://star.cgiar.org" target="_blank"><b>STAR – Seguimiento, Análisis y Reporte Estratégico</b></a></div>
+          <div class="project-category">Herramienta de Gestión de Resultados</div>
+          <div class="project-description">Herramienta de gestión de resultados desarrollada por la Alianza para rastrear resultados de programas bilaterales y científicos. Conecta operaciones a nivel de proyecto con los resultados globales de CGIAR, integrando OICRs, innovaciones y productos de conocimiento.</div>
+        </div>
 
-      <div class="pub-card">
-        <div class="pub-title"><a href="https://clarisa.cgiar.org" target="_blank"><b>CLARISA – Sistema de Resultados e Indicadores CGIAR para Análisis</b></a></div>
-        <div class="pub-meta">Sistema de Referencia Central</div>
-        <div class="pub-abstract">Sistema de referencia central que gestiona listas de control de CGIAR (centros, países, regiones, iniciativas, indicadores, etc.). Proporciona APIs que permiten interoperabilidad entre plataformas como PRMS, STAR y MARLO.</div>
-      </div>
+        <div class="project-card">
+          <div class="project-title"><a href="https://clarisa.cgiar.org" target="_blank"><b>CLARISA – Sistema de Resultados e Indicadores CGIAR para Análisis</b></a></div>
+          <div class="project-category">Sistema de Referencia Central</div>
+          <div class="project-description">Sistema de referencia central que gestiona listas de control de CGIAR (centros, países, regiones, iniciativas, indicadores, etc.). Proporciona APIs que permiten interoperabilidad entre plataformas como PRMS, STAR y MARLO.</div>
+        </div>
 
-      <div class="pub-card">
-        <div class="pub-title"><a href="https://marlo.cgiar.org" target="_blank"><b>MARLO – Monitoreo, Evaluación y Aprendizaje en Línea</b></a></div>
-        <div class="pub-meta">Plataforma para Proyectos de Investigación</div>
-        <div class="pub-abstract">Plataforma que apoya proyectos de investigación y desarrollo para planificación, monitoreo y evaluación. Utilizada en iniciativas como AICCRA, gestiona entregables, indicadores y procesos de aseguramiento de calidad.</div>
-      </div>
+        <div class="project-card">
+          <div class="project-title"><a href="https://marlo.cgiar.org" target="_blank"><b>MARLO – Monitoreo, Evaluación y Aprendizaje en Línea</b></a></div>
+          <div class="project-category">Plataforma para Proyectos de Investigación</div>
+          <div class="project-description">Plataforma que apoya proyectos de investigación y desarrollo para planificación, monitoreo y evaluación. Utilizada en iniciativas como AICCRA, gestiona entregables, indicadores y procesos de aseguramiento de calidad.</div>
+        </div>
 
-      <div class="pub-card">
-        <div class="pub-title"><a href="https://www.cgiar.org/food-security-impact/results-dashboard/" target="_blank"><b>Panel de Resultados CGIAR</b></a></div>
-        <div class="pub-meta">Panel Interactivo</div>
-        <div class="pub-abstract">Un panel interactivo que consolida los resultados de investigación y datos de impacto de CGIAR en una sola interfaz visual. Permite a los usuarios explorar el progreso a través de Iniciativas y Áreas de Impacto, destacando innovaciones, políticas, alianzas y resultados medibles alineados con los Objetivos de Desarrollo Sostenible. Diseñado para mejorar la transparencia y comunicación, el panel transforma reportes institucionales complejos en perspectivas visuales accesibles que demuestran la contribución global de CGIAR a los sistemas alimentarios, terrestres y acuáticos.</div>
-      </div>
+        <div class="project-card">
+          <div class="project-title"><a href="https://www.cgiar.org/food-security-impact/results-dashboard/" target="_blank"><b>Panel de Resultados CGIAR</b></a></div>
+          <div class="project-category">Panel Interactivo</div>
+          <div class="project-description">Un panel interactivo que consolida los resultados de investigación y datos de impacto de CGIAR en una sola interfaz visual. Permite a los usuarios explorar el progreso a través de Iniciativas y Áreas de Impacto, destacando innovaciones, políticas, alianzas y resultados medibles alineados con los Objetivos de Desarrollo Sostenible. Diseñado para mejorar la transparencia y comunicación, el panel transforma reportes institucionales complejos en perspectivas visuales accesibles que demuestran la contribución global de CGIAR a los sistemas alimentarios, terrestres y acuáticos.</div>
+        </div>
 
-      <div class="pub-card">
-        <div class="pub-title"><a href="https://alliancebioversityciat.org/impact/results-dashboard" target="_blank"><b>Panel de Resultados de la Alianza</b></a></div>
-        <div class="pub-meta">Panel Público</div>
-        <div class="pub-abstract">Panel público que consolida resultados institucionales y de proyectos de la Alianza. Proporciona visualizaciones interactivas de indicadores, publicaciones, innovaciones y políticas a través de Power BI.</div>
-      </div>
+        <div class="project-card">
+          <div class="project-title"><a href="https://alliancebioversityciat.org/impact/results-dashboard" target="_blank"><b>Panel de Resultados de la Alianza</b></a></div>
+          <div class="project-category">Panel Público</div>
+          <div class="project-description">Panel público que consolida resultados institucionales y de proyectos de la Alianza. Proporciona visualizaciones interactivas de indicadores, publicaciones, innovaciones y políticas a través de Power BI.</div>
+        </div>
 
-      <div class="pub-card">
-        <div class="pub-title"><a href="https://marlo.aiccra.cgiar.org" target="_blank"><b>Gestión de Investigación Agrícola para Aprendizaje y Productos (MARLO – Instancia AICCRA)</b></a></div>
-        <div class="pub-meta">Instancia MARLO Dedicada</div>
-        <div class="pub-abstract">Instancia MARLO dedicada personalizada para el proyecto AICCRA. Integra módulos para rastrear entregables, evidencia de impacto y reportes de monitoreo, fortaleciendo la gestión de datos y el aprendizaje institucional.</div>
+        <div class="project-card">
+          <div class="project-title"><a href="https://qa.cgiar.org" target="_blank"><b>Plataforma de Evaluación de Calidad (QA)</b></a></div>
+          <div class="project-category">Plataforma de Aseguramiento de Calidad</div>
+          <div class="project-description">Plataforma que apoya el proceso de aseguramiento de calidad para resultados reportados en PRMS. Gestiona revisiones técnicas, evaluaciones y flujos de trabajo dirigidos por evaluadores de la Oficina del Sistema CGIAR.</div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-title"><a href="https://marlo.aiccra.cgiar.org" target="_blank"><b>Gestión de Investigación Agrícola para Aprendizaje y Productos (MARLO – Instancia AICCRA)</b></a></div>
+          <div class="project-category">Instancia MARLO Dedicada</div>
+          <div class="project-description">Instancia MARLO dedicada personalizada para el proyecto AICCRA. Integra módulos para rastrear entregables, evidencia de impacto y reportes de monitoreo, fortaleciendo la gestión de datos y el aprendizaje institucional.</div>
+        </div>
       </div>
     </div>
 
-    <div class="section">
-      <h2>Publicaciones y Resúmenes</h2>
-      <div class="divider"></div>
-      <div class="pub-card"><div class="pub-title"><a href="https://hdl.handle.net/10568/135274" target="_blank"><b>Resumen de Herramienta de Monitoreo de Prospectiva</b></a></div><div class="pub-meta">Bioversity International & CIAT · Dic 12, 2023</div><div class="pub-abstract">Presenta las actualizaciones e innovaciones de 2023 de la Herramienta de Monitoreo de Prospectiva, mostrando su uso para monitoreo basado en escenarios y apoyo a la toma de decisiones en contextos de prospectiva agrícola.</div></div>
-      <div class="pub-card"><div class="pub-title"><a href="https://hdl.handle.net/20.500.11766/68494" target="_blank"><b>Introduciendo Puntuaciones FAIR en un Servicio Global de Reporte de Ciencia Agrícola</b></a></div><div class="pub-meta">ICARDA · Jun 15, 2023</div><div class="pub-abstract">Analiza la adopción de puntuaciones FAIR en el servicio de reporte de One CGIAR; las actualizaciones iterativas mejoraron la apertura, interoperabilidad y reutilización de resultados científicos.</div></div>
-      <div class="pub-card"><div class="pub-title"><a href="https://cgspace.cgiar.org/handle/10568/119221" target="_blank"><b>Explorando la Arquitectura de Sistema Interoperable de Resultados Agrícolas a Nivel CGIAR (CLARISA)</b></a></div><div class="pub-meta">CCAFS · Mar 31, 2022</div><div class="pub-abstract">Introduce CLARISA como una arquitectura centralizada que permite la interoperabilidad de datos de resultados agrícolas, conectando sistemas como MARLO, MEL e MIS institucionales para reportes consistentes de CGIAR.</div></div>
-      <div class="pub-card"><div class="pub-title"><a href="https://hdl.handle.net/20.500.11766/66480" target="_blank"><b>Estudio de Caso: API Procesador de Aseguramiento de Calidad-Monitoreo</b></a></div><div class="pub-meta">ICARDA · Nov 26, 2021</div><div class="pub-abstract">Detalla el desarrollo de una API (M-QAP) que apoya el proceso de aseguramiento de calidad de publicaciones revisadas por pares de CGIAR a través de la automatización de la validación de metadatos.</div></div>
-      <div class="pub-card"><div class="pub-title"><a href="http://hdl.handle.net/10568/69497" target="_blank"><b>Construyendo una Plataforma Online para Gestión de Programas Basada en Resultados Enfocados en Resultados</b></a></div><div class="pub-meta">CCAFS · Ene 8, 2016</div><div class="pub-abstract">Describe una plataforma de gestión de resultados en línea que apoya la medición de resultados y el seguimiento de datos para programas CGIAR.</div></div>
-      <div class="pub-card"><div class="pub-title"><a href="http://www.oas.org/dsd/IABIN/Component3/CIAT/Informe%20de%20Avance.pdf" target="_blank"><b>Mejorando Datos de Biodiversidad para Evaluación de Amenazas y Conservación en América del Sur</b></a></div><div class="pub-meta">CIAT / IABIN · Ene 1, 2010</div><div class="pub-abstract">Reporte sobre mejoramiento de estándares de datos de biodiversidad y metodologías de integración de datos para planificación de conservación en América del Sur.</div></div>
-      <div class="pub-card"><div class="pub-title"><a href="http://www.gbif.org/system/files_force/gbif_resource/resource-80721/SS7Programme_lowres.pdf?download=1" target="_blank"><b>Impactos del Cambio Climático en la Biodiversidad Vegetal Global</b></a></div><div class="pub-meta">7º Simposio Científico GBIF · Oct 7, 2009</div><div class="pub-abstract">Examina cómo los sistemas actuales de áreas protegidas pueden enfrentarse a las distribuciones proyectadas de diversidad vegetal para 2050 bajo escenarios de cambio climático.</div></div>
+    <div class="collapsible-section">
+      <div class="collapsible-header" onclick="toggleSection('publicaciones')">
+        <h2>Publicaciones y Resúmenes</h2>
+        <span class="collapsible-toggle expanded">▼</span>
+      </div>
+      <div class="collapsible-content expanded" id="publicaciones-content">
+        <div class="divider"></div>
+        <div class="pub-card"><div class="pub-title"><a href="https://hdl.handle.net/10568/135274" target="_blank"><b>Resumen de Herramienta de Monitoreo de Prospectiva</b></a></div><div class="pub-meta">Bioversity International & CIAT · Dic 12, 2023</div><div class="pub-abstract">Presenta las actualizaciones e innovaciones de 2023 de la Herramienta de Monitoreo de Prospectiva, mostrando su uso para monitoreo basado en escenarios y apoyo a la toma de decisiones en contextos de prospectiva agrícola.</div></div>
+        <div class="pub-card"><div class="pub-title"><a href="https://hdl.handle.net/20.500.11766/68494" target="_blank"><b>Introduciendo Puntuaciones FAIR en un Servicio Global de Reporte de Ciencia Agrícola</b></a></div><div class="pub-meta">ICARDA · Jun 15, 2023</div><div class="pub-abstract">Analiza la adopción de puntuaciones FAIR en el servicio de reporte de One CGIAR; las actualizaciones iterativas mejoraron la apertura, interoperabilidad y reutilización de resultados científicos.</div></div>
+        <div class="pub-card"><div class="pub-title"><a href="https://cgspace.cgiar.org/handle/10568/119221" target="_blank"><b>Explorando la Arquitectura de Sistema Interoperable de Resultados Agrícolas a Nivel CGIAR (CLARISA)</b></a></div><div class="pub-meta">CCAFS · Mar 31, 2022</div><div class="pub-abstract">Introduce CLARISA como una arquitectura centralizada que permite la interoperabilidad de datos de resultados agrícolas, conectando sistemas como MARLO, MEL e MIS institucionales para reportes consistentes de CGIAR.</div></div>
+        <div class="pub-card"><div class="pub-title"><a href="https://hdl.handle.net/20.500.11766/66480" target="_blank"><b>Estudio de Caso: API Procesador de Aseguramiento de Calidad-Monitoreo</b></a></div><div class="pub-meta">ICARDA · Nov 26, 2021</div><div class="pub-abstract">Detalla el desarrollo de una API (M-QAP) que apoya el proceso de aseguramiento de calidad de publicaciones revisadas por pares de CGIAR a través de la automatización de la validación de metadatos.</div></div>
+        <div class="pub-card"><div class="pub-title"><a href="http://hdl.handle.net/10568/69497" target="_blank"><b>Construyendo una Plataforma Online para Gestión de Programas Basada en Resultados Enfocados en Resultados</b></a></div><div class="pub-meta">CCAFS · Ene 8, 2016</div><div class="pub-abstract">Describe una plataforma de gestión de resultados en línea que apoya la medición de resultados y el seguimiento de datos para programas CGIAR.</div></div>
+        <div class="pub-card"><div class="pub-title"><a href="http://www.oas.org/dsd/IABIN/Component3/CIAT/Informe%20de%20Avance.pdf" target="_blank"><b>Mejorando Datos de Biodiversidad para Evaluación de Amenazas y Conservación en América del Sur</b></a></div><div class="pub-meta">CIAT / IABIN · Ene 1, 2010</div><div class="pub-abstract">Reporte sobre mejoramiento de estándares de datos de biodiversidad y metodologías de integración de datos para planificación de conservación en América del Sur.</div></div>
+        <div class="pub-card"><div class="pub-title"><a href="http://www.gbif.org/system/files_force/gbif_resource/resource-80721/SS7Programme_lowres.pdf?download=1" target="_blank"><b>Impactos del Cambio Climático en la Biodiversidad Vegetal Global</b></a></div><div class="pub-meta">7º Simposio Científico GBIF · Oct 7, 2009</div><div class="pub-abstract">Examina cómo los sistemas actuales de áreas protegidas pueden enfrentarse a las distribuciones proyectadas de diversidad vegetal para 2050 bajo escenarios de cambio climático.</div></div>
+      </div>
     </div>
   </section>
 </section>
@@ -664,6 +732,25 @@ function toggleLanguage() {
     spanishContent.style.display = 'grid';
     flagSpan.textContent = '🇺🇸';
     textSpan.textContent = 'English Version';
+  }
+}
+
+function toggleSection(sectionId) {
+  const content = document.getElementById(sectionId + '-content');
+  const toggle = content.previousElementSibling.querySelector('.collapsible-toggle');
+  
+  if (content.classList.contains('expanded')) {
+    // Colapsar
+    content.classList.remove('expanded');
+    content.classList.add('collapsed');
+    toggle.classList.remove('expanded');
+    toggle.textContent = '▶';
+  } else {
+    // Expandir
+    content.classList.remove('collapsed');
+    content.classList.add('expanded');
+    toggle.classList.add('expanded');
+    toggle.textContent = '▼';
   }
 }
 </script>
